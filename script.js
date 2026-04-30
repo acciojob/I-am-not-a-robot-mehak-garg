@@ -9,7 +9,7 @@ let image_array = [
 window.onload = function () {
     var randomNum = Math.floor(Math.random() * 5);
 
-    document.getElementById("img6").src = image_array[randomNum];
+    document.getElementById("img6").setAttribute("src",image_array[randomNum]);
 
 
     let img1 = document.querySelector("#img1");
@@ -69,7 +69,7 @@ let count = 0;
 images.forEach((item, i) => {
     item.addEventListener("click", (e) => {
         count++;
-        console.log(item);
+       
      selectedimages.push(item.src);
          
         if (count === 1) {
@@ -78,8 +78,9 @@ images.forEach((item, i) => {
         }
         if (count === 2) {
             document.querySelector("#verify").style.visibility = "visible";
-        document.querySelector("#verify").addEventListener("click",()=>{if(selectedimages[0]===selectedimages[1])
-        {
+        document.querySelector("#verify").addEventListener("click",()=>{
+			if(selectedimages[0]===selectedimages[1] 
+			   {
             document.querySelector("#result").innerText="You are a human. Congratulations!";
             document.querySelector("#verify").style.visibility = "hidden";
 			selectedimages.pop();
